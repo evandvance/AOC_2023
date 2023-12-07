@@ -9,7 +9,6 @@ def part1(data):
     return_score = 0
 
     for i,line in enumerate(data):
-        # print(line)
         score = 0
         line = re.sub(f'Card {i+1}:','',line)
         line = line.split('|')
@@ -28,7 +27,6 @@ def part2(data):
     cards = []
 
     for i,line in enumerate(data):
-        # print(line)
         score = 0
         line = re.sub(f'Card {i+1}:','',line)
         line = line.split('|')
@@ -45,6 +43,5 @@ def part2(data):
 
     return sum(temp)
 
-# print(part1(data))
-
+print(part1(data))
 print(part2(data))
