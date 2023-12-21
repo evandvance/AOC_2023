@@ -1,9 +1,24 @@
 inputs = './inputs/05.txt'
 test = './test/05test.txt'
 
+
+def memorize(func):
+    cache = {}
+
+    def wrapper(*args):
+        if args in cache:
+            return cache[args]
+        else:
+            result = func(*args)
+            cache[args] = result
+            return result
+
+    return wrapper
+
 with open(inputs) as file:
     data = {item[0]: item[1].split('\n') for item in [item.split(':') for item in file.read().split('\n\n')]}
 
+@memorize
 def get_next_value(seed,map_list):
     for ele in map_list:
         ele = ele.split()
@@ -13,6 +28,7 @@ def get_next_value(seed,map_list):
             return int(ele[0]) + (int(seed) - int(ele[1]))
     return seed
 
+@memorize
 def map_seed(seed, data):
     r_dict = {'seed':seed}
 
