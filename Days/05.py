@@ -37,6 +37,7 @@ def map_seed(seed, data):
             continue
         r_dict[key.replace(' map','').split('-')[-1]] = get_next_value(r_dict[key.split('-')[0]],val)
     
+    print(f'Seed location: {r_dict['location']}')
     return r_dict
 
 def part_one(data):
@@ -56,6 +57,7 @@ def part_two(data):
         if seed not in seed_range:
             seed_range.append(seed)
 
+    print('Seeds Generated')
     solved_map = [map_seed(seed,data) for seed in seed_range]
 
     smallest = 999999999999999999999999999999999999
@@ -66,5 +68,9 @@ def part_two(data):
     return smallest
 
 if __name__ == "__main__":
+    part2 = part_two(data)
     # print(f"Part one: {part_one(data)}")
-    print(f"Part two: {part_two(data)}")
+    print(f"Part two: {part2}")
+
+    with open('./answer.txt') as file:
+        file.write(part2)
