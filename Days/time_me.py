@@ -4,7 +4,7 @@ def time_me(func):
     def wrapped(*args, **kwargs):
 
         start_time = datetime.now()
-        print(f'Started at {start_time}')
+        print(f'Function {func.__name__} started at {start_time}')
 
         result = func(*args, **kwargs)
 

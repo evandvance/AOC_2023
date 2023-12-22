@@ -3,7 +3,7 @@ import math
 
 day = "06"
 
-def calc_win_cons(max_time,record):
+def calc_win_cons(max_time, record):
     win_con = 0
     speed = 1
     max_time -= 1
@@ -29,7 +29,7 @@ def part_two(data):
     return calc_win_cons(time,record)
 
 if __name__ == "__main__":
-    test = False
+    test = True 
     input_file = './test/{}test.txt'.format(day) if test else './inputs/{}.txt'.format(day)
 
     with open(input_file) as file:
