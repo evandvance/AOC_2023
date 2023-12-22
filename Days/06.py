@@ -6,19 +6,20 @@ day = "06"
 def calc_win_cons(max_time, record):
     win_con = 0
     speed = 1
-    l_bound = 0
     max_time -= 1
 
-    while max_time > l_bound:
+    while max_time > speed:
         distance = speed * max_time
         if distance > record:
-            if l_bound == 0:
-                l_bound = speed
-            win_con += 1
+            win_con += 2
         speed += 1
         max_time -= 1
 
-    return win_con + 1
+    #Catch Case
+    if speed == max_time:
+        win_con += 1
+
+    return win_con
 
 @Util.time_me
 def part_one(data):
@@ -32,7 +33,7 @@ def part_two(data):
     return calc_win_cons(time,record)
 
 if __name__ == "__main__":
-    test = True
+    test = False
     input_file = './test/{}test.txt'.format(day) if test else './inputs/{}.txt'.format(day)
 
     with open(input_file) as file:
@@ -40,5 +41,6 @@ if __name__ == "__main__":
 
     part_one_data = [[int(t),int(data[1][i])]for i,t in enumerate(data[0])]
 
+    # calc_win_cons(30,200)
     print(part_one(part_one_data)) #Instant 393120
     print(part_two(data)) #4.610965 sec 36872656 Somehow every subsequent time ive run this its taken longer
