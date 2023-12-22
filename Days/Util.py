@@ -5,12 +5,12 @@ class Util:
         def wrapped(*args, **kwargs):
 
             start_time = datetime.now()
-            print(f'Function {func.__name__} started at {start_time}')
+            print(f'Function - {func.__name__} started at {start_time}')
 
             result = func(*args, **kwargs)
 
             end_time = datetime.now() - start_time
-            print(f'Function: {func.__name__} took: {end_time}')
+            print(f'Function - {func.__name__} took: {end_time}')
             return result
 
         return wrapped

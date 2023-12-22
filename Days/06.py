@@ -5,20 +5,20 @@ day = "06"
 
 def calc_win_cons(max_time, record):
     win_con = 0
-    l_bound = 1
     speed = 1
+    l_bound = 0
     max_time -= 1
 
-    while max_time >= l_bound:
+    while max_time > l_bound:
         distance = speed * max_time
         if distance > record:
             if l_bound == 0:
                 l_bound = speed
-            win_con +=1
+            win_con += 1
         speed += 1
         max_time -= 1
 
-    return win_con
+    return win_con + 1
 
 @Util.time_me
 def part_one(data):
@@ -32,7 +32,7 @@ def part_two(data):
     return calc_win_cons(time,record)
 
 if __name__ == "__main__":
-    test = False
+    test = True
     input_file = './test/{}test.txt'.format(day) if test else './inputs/{}.txt'.format(day)
 
     with open(input_file) as file:
