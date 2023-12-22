@@ -19,7 +19,7 @@ def calc_win_cons(max_time,record):
 
 @time_me
 def part_one(data):
-    return math.prod([calc_win_cons(int(t),int(w)) for t,w in data])
+    return math.prod([calc_win_cons(t,w) for t,w in data])
 
 
 @time_me
