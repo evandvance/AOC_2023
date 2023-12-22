@@ -1,11 +1,11 @@
-from time_me import time_me
+from Days.Util import Util
 day = ""
 
-@time_me
+@Util.time_me
 def part_one(data):
     pass
 
-@time_me
+@Util.time_me
 def part_two(data):
     pass
 
