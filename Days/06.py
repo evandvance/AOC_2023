@@ -11,7 +11,8 @@ def calc_win_cons(max_time, record):
     while max_time > speed:
         distance = speed * max_time
         if distance > record:
-            win_con += 2
+            win_con = max_time - speed + 1
+            break
         speed += 1
         max_time -= 1
 
