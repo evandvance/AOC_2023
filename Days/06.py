@@ -4,28 +4,19 @@ import math
 day = "06"
 
 def calc_win_cons(max_time, record):
-    win_con = 0
     speed = 1
     max_time -= 1
 
     while max_time > speed:
         distance = speed * max_time
         if distance > record:
-            win_con = max_time - speed + 1
-            break
+            return max_time - speed + 1
         speed += 1
         max_time -= 1
-
-    #Catch Case
-    if speed == max_time:
-        win_con += 1
-
-    return win_con
 
 @Util.time_me
 def part_one(data):
     return math.prod([calc_win_cons(t,w) for t,w in data])
-
 
 @Util.time_me
 def part_two(data):
